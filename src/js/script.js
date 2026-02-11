@@ -1,12 +1,22 @@
 const d = document,
   $boton = d.querySelector("button"),
-  $colores = d.querySelectorAll(".color");
+  $tarjetas = d.querySelectorAll(".tarjeta");
+
+function hexAleatorio() {
+  return (
+    "#" +
+    Math.floor(Math.random() * 16777216)
+      .toString(16)
+      .padStart(6, "0")
+  );
+}
 
 $boton.addEventListener("click", () => {
-  $colores.forEach(($color) => {
-    const r = Math.floor(Math.random() * 256),
-      g = Math.floor(Math.random() * 256),
-      b = Math.floor(Math.random() * 256);
-    $color.style.backgroundColor = `rgb(${r}, ${g}, ${b})`;
+  $tarjetas.forEach(($tarjeta) => {
+    const $muestra = $tarjeta.querySelector(".muestra");
+    const $codigo = $tarjeta.querySelector(".codigo");
+    const hex = hexAleatorio();
+    $muestra.style.backgroundColor = hex;
+    $codigo.textContent = hex;
   });
 });

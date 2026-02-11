@@ -2,43 +2,81 @@
 *:after,
 *:before {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  height: 100vh;
 }
 
 body {
-  margin: 0;
-  min-height: 100vh;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  font-family: sans-serif;
 }
 
+/*
+  flex-shrink: 0 → Le decimos al flex:  “quédate estático”: el bloque no se encoje, mantiene su altura (10% o 77.5%). (no encojas este bloque).
+  overflow: auto  → Para poder ver todo el contenido: si no cabe, sale scroll dentro del bloque.
+*/
 header {
-  text-align: center;
-  margin-bottom: 1rem;
+  height: 12.5%;
+  flex-shrink: 0;
+  overflow: auto;
 }
 
 main {
-  text-align: center;
-}
-
-button {
-  padding: 0.6rem 1.2rem;
-  font-size: 1rem;
-  margin-top: 1.5rem;
-  cursor: pointer;
+  height: 77.5%;
+  flex-shrink: 0;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
 }
 
 .paleta {
+  height: 85%;
+  flex-shrink: 0;
   display: flex;
   gap: 1rem;
   justify-content: center;
+  align-items: center;
   flex-wrap: wrap;
+  padding: 1rem;
+  overflow: auto;
 }
 
-.color {
+.controles {
+  height: 15%;
+  flex-shrink: 0;
+  padding: 1rem;
+  text-align: center;
+}
+
+.tarjeta {
+  display: flex;
+  flex-direction: column;
+  border: 1px solid black;
   min-width: 4rem;
-  min-height: 4rem;
+  flex: 1;
+  max-width: 15%;
+  min-height: 6rem;
+  overflow: hidden;
+}
+
+.tarjeta .muestra {
+  flex: 1;
+  min-height: 3rem;
   background-color: black;
+}
+
+.tarjeta .codigo {
+  padding: 0.35rem 0.5rem;
+  font-size: 0.8rem;
+}
+
+footer {
+  height: 10%;
+  flex-shrink: 0;
+  overflow: auto;
 }
