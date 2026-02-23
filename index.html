@@ -11,29 +11,18 @@
       <h1>Paleta de colores</h1>
     </header>
 
-    <main>
-      <section class="paleta">
-        <article class="tarjeta">
-          <div class="muestra"></div>
-          <p class="codigo"></p>
-        </article>
-        <article class="tarjeta">
-          <div class="muestra"></div>
-          <p class="codigo"></p>
-        </article>
-        <article class="tarjeta">
-          <div class="muestra"></div>
-          <p class="codigo"></p>
-        </article>
-        <article class="tarjeta">
-          <div class="muestra"></div>
-          <p class="codigo"></p>
-        </article>
-      </section>
+    <secton >
+      <label for="cantidad">Cantidad:</label>
+      <select id="cantidad" name="cantidad">
+        <option value="6" selected>6</option>
+        <option value="8">8</option>
+        <option value="9">9</option>
+      </select>
+      <button type="button">Generar colores</button>
+    </secton>
 
-      <section class="controles">
-        <button type="button">Generar colores</button>
-      </section>
+    <main>
+      <section class="paletaColores"></section>
     </main>
 
     <footer>
