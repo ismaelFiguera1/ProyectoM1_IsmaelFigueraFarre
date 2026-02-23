@@ -1,15 +1,31 @@
 const d = document,
   $boton = d.querySelector("button"),
   $cantidad = d.querySelector("#cantidad"),
-  $paleta = d.querySelector(".paletaColores");
+  $paleta = d.querySelector(".paletaColores"),
+  $formato = d.getElementById("formato");
+
+function ColorearTarjeta(formato) {
+  if (formato === "hex") {
+    const hex = hexAleatorio();
+    return hex;
+  } else if (formato === "hsl") {
+    const hsl = hslAleatorio();
+    return hsl;
+  }
+}
 
 function hexAleatorio() {
-  return (
-    "#" +
-    Math.floor(Math.random() * 16777216)
-      .toString(16)
-      .padStart(6, "0")
-  );
+  const codigo = Math.floor(Math.random() * 16777216)
+  .toString(16)
+  .padStart(6, "0");
+  return `#${codigo}`;
+}
+
+function hslAleatorio() {
+  const h = Math.floor(Math.random() * 360);   // 0 a 359
+  const s = Math.floor(Math.random() * 101);   // 0 a 100
+  const l = Math.floor(Math.random() * 101);   // 0 a 100
+  return `hsl(${h}, ${s}%, ${l}%)`;
 }
 
 function eliminarPaleta() {
@@ -30,7 +46,6 @@ function crearPaletas() {
   }
 
   $paleta.appendChild($fragment);
-  console.log($paleta);
 }
 
 $boton.addEventListener("click", () => {
@@ -39,12 +54,16 @@ $boton.addEventListener("click", () => {
   $tarjetas.forEach(($tarjeta) => {
     const $muestra = $tarjeta.querySelector(".muestra");
     const $codigo = $tarjeta.querySelector(".codigo");
-    const hex = hexAleatorio();
-    $muestra.style.backgroundColor = hex;
-    $codigo.textContent = hex;
+    const color = ColorearTarjeta($formato.value);
+     $muestra.style.backgroundColor = color;
+    $codigo.textContent = color;
   });
 });
 
 $cantidad.addEventListener("change", () => {
-  crearPaletas();
+  eliminarPaleta();
+});
+
+$formato.addEventListener("change", () => {
+  eliminarPaleta();
 });

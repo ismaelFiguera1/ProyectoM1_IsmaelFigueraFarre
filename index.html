@@ -11,17 +11,23 @@
       <h1>Paleta de colores</h1>
     </header>
 
-    <secton >
-      <label for="cantidad">Cantidad:</label>
-      <select id="cantidad" name="cantidad">
-        <option value="6" selected>6</option>
-        <option value="8">8</option>
-        <option value="9">9</option>
-      </select>
-      <button type="button">Generar colores</button>
-    </secton>
+
 
     <main>
+      <section class="generarColores">
+        <label for="cantidad">Cantidad:</label>
+        <select id="cantidad" name="cantidad">
+          <option value="6" selected>6</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+        </select>
+        <label for="formato">Formato:</label>
+        <select id="formato" name="formato">
+          <option value="hex" selected>Hex</option>
+          <option value="hsl">HSL</option>
+        </select>
+        <button type="button">Generar colores</button>
+      </section>
       <section class="paletaColores"></section>
     </main>
 
