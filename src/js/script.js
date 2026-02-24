@@ -69,8 +69,8 @@ $formato.addEventListener("change", () => {
 });
 
 $paleta.addEventListener("click", (e) => {
-  if (e.target.classList.contains("muestra")) {
-    navigator.clipboard.writeText(e.target.nextElementSibling.textContent);
+  if (e.target.classList.contains("codigo")) {
+    navigator.clipboard.writeText(e.target.textContent);
     const $toast = d.querySelector(".toast");
     $toast.removeAttribute("hidden");
     setTimeout(() => {

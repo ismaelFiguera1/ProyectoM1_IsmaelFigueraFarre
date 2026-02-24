@@ -12,22 +12,24 @@
     </header>
 
     <main>
-      <section class="generarColores">
-        <label for="cantidad">Cantidad:</label>
-        <select id="cantidad" name="cantidad">
-          <option value="6" selected>6</option>
-          <option value="8">8</option>
-          <option value="9">9</option>
-        </select>
-        <label for="formato">Formato:</label>
-        <select id="formato" name="formato">
-          <option value="hex" selected>Hex</option>
-          <option value="hsl">HSL</option>
-        </select>
-        <button type="button">Generar paleta</button>
-      </section>
-      <section class="paletaColores"></section>
-      <output class="toast" hidden> Color copiado al portapapeles </output>
+      <div class="contenedor">
+        <section class="generarColores">
+          <label for="cantidad">Cantidad:</label>
+          <select id="cantidad" name="cantidad">
+            <option value="6" selected>6</option>
+            <option value="8">8</option>
+            <option value="9">9</option>
+          </select>
+          <label for="formato">Formato:</label>
+          <select id="formato" name="formato">
+            <option value="hex" selected>Hex</option>
+            <option value="hsl">HSL</option>
+          </select>
+          <button type="button">Generar paleta</button>
+        </section>
+        <section class="paletaColores"></section>
+        <output class="toast" hidden> Color copiado al portapapeles </output>
+      </div>
     </main>
 
     <footer>
