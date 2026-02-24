@@ -16,15 +16,15 @@ function ColorearTarjeta(formato) {
 
 function hexAleatorio() {
   const codigo = Math.floor(Math.random() * 16777216)
-  .toString(16)
-  .padStart(6, "0");
+    .toString(16)
+    .padStart(6, "0");
   return `#${codigo}`;
 }
 
 function hslAleatorio() {
-  const h = Math.floor(Math.random() * 360);   // 0 a 359
-  const s = Math.floor(Math.random() * 101);   // 0 a 100
-  const l = Math.floor(Math.random() * 101);   // 0 a 100
+  const h = Math.floor(Math.random() * 360); // 0 a 359
+  const s = Math.floor(Math.random() * 101); // 0 a 100
+  const l = Math.floor(Math.random() * 101); // 0 a 100
   return `hsl(${h}, ${s}%, ${l}%)`;
 }
 
@@ -55,7 +55,7 @@ $boton.addEventListener("click", () => {
     const $muestra = $tarjeta.querySelector(".muestra");
     const $codigo = $tarjeta.querySelector(".codigo");
     const color = ColorearTarjeta($formato.value);
-     $muestra.style.backgroundColor = color;
+    $muestra.style.backgroundColor = color;
     $codigo.textContent = color;
   });
 });
@@ -66,4 +66,15 @@ $cantidad.addEventListener("change", () => {
 
 $formato.addEventListener("change", () => {
   eliminarPaleta();
+});
+
+$paleta.addEventListener("click", (e) => {
+  if (e.target.classList.contains("muestra")) {
+    navigator.clipboard.writeText(e.target.nextElementSibling.textContent);
+    const $toast = d.querySelector(".toast");
+    $toast.removeAttribute("hidden");
+    setTimeout(() => {
+      $toast.setAttribute("hidden", "");
+    }, 3000);
+  }
 });
